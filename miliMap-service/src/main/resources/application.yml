@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:mysql://rm-bp1e65sb4b5c1afx4wo.mysql.rds.aliyuncs.com:3306/jmccms?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF8
+    username: milimap1
+    password: miliMap1234567!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+
+logging:
+  classpath: log4j2-spring.xml
+  level:
+    root: INFO
+    javax.activation: info
+    org.apache.catalina: INFO
+    org.apache.commons.beanutils.converters: INFO
+    org.apache.coyote.http11.Http11Processor: INFO
+    org.apache.http: INFO
+    org.apache.tomcat: INFO
+    org.springframework: INFO
+    com.chinamobile.cmss.bdpaas.resource.monitor: DEBUG

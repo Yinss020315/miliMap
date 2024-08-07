@@ -30,6 +30,19 @@
         <spring.boot.version>2.6.4</spring.boot.version>
         <lombok.version>1.18.22</lombok.version>
     </properties>
+    <distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>maven-release-virtual</name>
+        <url>https://pkgs.d.xiaomi.net/artifactory/maven-release-virtual</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>snapshots</name>
+        <url>https://pkgs.d.xiaomi.net/artifactory/maven-snapshot-virtual</url>
+    </snapshotRepository>
+</distributionManagement>
+
 
     <dependencyManagement>
         <dependencies>
@@ -48,6 +61,21 @@
                 <version>${lombok.version}</version>
                 <optional>true</optional>
             </dependency>
+
+            <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
 
         </dependencies>
     </dependencyManagement>
