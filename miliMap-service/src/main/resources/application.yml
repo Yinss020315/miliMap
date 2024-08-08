@@ -1,10 +1,18 @@
 spring:
+  server:
+    port: 8080
+
   datasource:
-    url: jdbc:mysql://rm-bp1e65sb4b5c1afx4wo.mysql.rds.aliyuncs.com:3306/jmccms?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF8
-    username: milimap1
+    url: jdbc:mysql://rm-bp1e65sb4b5c1afx4wo.mysql.rds.aliyuncs.com:3306/milimap1?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF8
+    username: miliMap
     password: miliMap1234567!
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+mvc:
+  #  视图解析器
+  view:
+    prefix: /imf/
+    suffix: .html
 
 mybatis-plus:
   configuration:
