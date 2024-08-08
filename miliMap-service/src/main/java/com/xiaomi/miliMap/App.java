@@ -1,7 +1,9 @@
 package com.xiaomi.miliMap;
 
+import com.xiaomi.aegis.config.AegisConfig;
 import com.xiaomi.aegis.constant.SdkConstants;
 import com.xiaomi.aegis.filter.AegisFilter;
+import com.xiaomi.aegis.vo.UserInfoVO;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -9,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.EnableAsync;
 
+import javax.annotation.PostConstruct;
 import java.util.Arrays;
 
 /**
@@ -25,6 +28,25 @@ public class App {
             e.printStackTrace();
         }
 
+    }
+
+    @PostConstruct
+    public void config(){
+        AegisConfig.openTestMode();
+        UserInfoVO userInfoVO=new UserInfoVO();
+        userInfoVO.setName("machenyang3");
+        userInfoVO.setUser("马晨阳");
+        userInfoVO.setEmail("machenyang3@xioami.com");
+        userInfoVO.setDepartmentName("互联网业务部");
+        AegisConfig.addTestModeIpUserInfo("10.192.121.223",userInfoVO);
+        //eyJjYXM6dXNlciI6IumprOaZqOmYsyIsImNhczpuYW1lIjoibWFjaGVueWFuZzMiLCJjYXM6ZGVwYXJ0bWVudE5hbWUiOiLkupLogZTnvZHkuJrliqHpg6giLCJjYXM6ZW1haWwiOiJtYWNoZW55YW5nM0B4aW9hbWkuY29tIn0=
+        UserInfoVO userInfo = new UserInfoVO();
+        userInfo.setUser("zhigang");
+        userInfo.setName("志刚");
+        userInfo.setEmail("zhigang@xiaomi.com");
+        userInfo.setDepartmentName("信息安全与隐私");
+// 设置默认返回的用户信息，没有匹配到配置ip时返回默认的用户信息
+        AegisConfig.addTestModeIpUserInfo("default", userInfo);
     }
 //    @Bean
 //    public FilterRegistrationBean filterCasBean() {
